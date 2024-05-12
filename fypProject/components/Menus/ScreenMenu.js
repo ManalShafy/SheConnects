@@ -10,6 +10,9 @@ import About from "../../screens/About";
 import Post from "../../screens/Post";
 import Courses from "../../screens/Courses";
 import ProjectBoard from "../../screens/ProjectBoard";
+import Account from "../../screens/About";
+import RegisterMentor from "../../screens/auth/RegisterMentor";
+import Mentor from "../../screens/Mentor";
 const ScreenMenu = () => {
   //global state
   const [state] = useContext(AuthContext);
@@ -24,6 +27,14 @@ const ScreenMenu = () => {
           <Stack.Screen
             name="Home"
             component={Home}
+            options={{
+              title: "Sheconnects",
+              header: () => <HeaderMenu />,
+            }}
+          />
+          <Stack.Screen
+            name="Account"
+            component={Account}
             options={{
               title: "Sheconnects",
               header: () => <HeaderMenu />,
@@ -61,6 +72,25 @@ const ScreenMenu = () => {
             component={ProjectBoard}
             options={{
               title: "Sheconnects",
+              header: () => <HeaderMenu />,
+            }}
+          />
+          <Stack.Screen
+            name="RegisterMentor"
+            component={RegisterMentor}
+            options={{
+              title: "Sheconnects",
+              header: () => <HeaderMenu />,
+            }}
+          />
+          <Stack.Screen
+            // MY NETWORK SCREEN
+            name="Mentor"
+            component={Mentor}
+            options={{
+              //comment this out when you use headerbackTitle
+              title: "Sheconnects",
+              // headerBackTitle: "Back",
               header: () => <HeaderMenu />,
             }}
           />

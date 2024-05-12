@@ -5,24 +5,24 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { useIsFocused } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const FooterMenu = () => {
-  // const [state, setState] = useState(false);
-  // const isFocused = useIsFocused();
-  // const FetchMentor = async () => {
-  //   // setLoading(true);
-  //   try {
-  //     const data = JSON.parse(await AsyncStorage.getItem("@mentor"));
-  //     setState(data);
-  //   } catch (error) {
-  //     console.error("Error fetching mentor data:", error);
-  //   } finally {
-  //     //setLoading(false);
-  //   }
-  // };
+const MentorFooter = () => {
+  const [state, setState] = useState(false);
+  const isFocused = useIsFocused();
+  const FetchMentor = async () => {
+    // setLoading(true);
+    try {
+      const data = JSON.parse(await AsyncStorage.getItem("@mentor"));
+      setState(data);
+    } catch (error) {
+      console.error("Error fetching mentor data:", error);
+    } finally {
+      //setLoading(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   FetchMentor();
-  // }, []);
+  useEffect(() => {
+    FetchMentor();
+  }, []);
 
   //hooks
   const navigation = useNavigation();
@@ -64,8 +64,7 @@ const FooterMenu = () => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          // !isFocused ?
-          navigation.navigate("Courses");
+          !isFocused ? navigation.navigate("Courses") : "";
           // state && navigation.navigate("Courses");
         }}
       >
@@ -93,7 +92,7 @@ const FooterMenu = () => {
   );
 };
 
-export default FooterMenu;
+export default MentorFooter;
 
 const styles = StyleSheet.create({
   container: {
